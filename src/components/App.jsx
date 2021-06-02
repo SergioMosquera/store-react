@@ -1,5 +1,6 @@
 import React from 'react';
- 
-const App = () => <h1>Hola Mundo</h1>;
+import '../styles/components/app.css';
+
+const App = () => <h1>Configuracion Webpack para empezar a desarrollar un proyecto web</h1>;
 
 export default App;
