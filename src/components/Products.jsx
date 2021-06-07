@@ -1,14 +1,21 @@
-import React from 'react'
-import Product from './Product';
+import React, {useContext} from 'react'
+import Product from './Product'; 
+import AppContext from '../context/AppContext';
 import '../styles/components/Products.css';
 
 // eslint-disable-next-line arrow-body-style
-const Products = ({products}) => {
+const Products = () => {
+    const { state, addToCart} = useContext(AppContext);
+    const { products} = state;
+
+    const handleAddToCart = product => () => {
+        addToCart(product)
+    }
     return (
         <div className="Products">
             <div className="Products-items">
                 {products.map(product =>(
-                    <Product key={products.id} product={product} />
+                    <Product key={products.id} product={product} handleAddToCart={handleAddToCart} />
                 ))}
             </div>
         </div>
